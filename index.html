@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PULSE&POUT 💋🌸</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {margin:0; padding:0; box-sizing:border-box;}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background:#FFF7FA;
+    color:#1A1A1A;
+    overflow-x:hidden;
+}
+
+/* LOADING SCREEN */
+#loader {
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:#FFF7FA;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:9999;
+}
+
+.loader-text {
+    font-size:24px;
+    color:#FF4D8D;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {opacity:0.5;}
+    50% {opacity:1;}
+    100% {opacity:0.5;}
+}
+
+/* NAV */
+header {
+    display:flex;
+    justify-content:space-between;
+    padding:15px 30px;
+    background:#FFC0CB;
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+}
+
+header a {
+    margin:0 10px;
+    text-decoration:none;
+    color:#1A1A1A;
+}
+
+/* HERO */
+.hero {
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero h1 {
+    font-size:50px;
+    color:#FF4D8D;
+    animation:fadeUp 1.5s ease;
+}
+
+.hero p {
+    margin:15px 0;
+    animation:fadeUp 2s ease;
+}
+
+button {
+    background:#FF4D8D;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:25px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover {
+    transform:scale(1.1);
+    box-shadow:0 0 15px #FF4D8D;
+}
+
+/* SECTIONS */
+section {
+    padding:100px 20px;
+    text-align:center;
+}
+
+/* PRODUCTS */
+.products {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card {
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    transition:0.4s;
+}
+
+.card:hover {
+    transform:translateY(-10px) scale(1.05);
+}
+
+.card img {
+    width:100%;
+    border-radius:15px;
+    margin-bottom:10px;
+}
+
+/* FLOATING ANIMATION */
+.float {
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {transform:translateY(0);}
+    50% {transform:translateY(-15px);}
+    100% {transform:translateY(0);}
+}
+
+/* GALLERY */
+.gallery img {
+    width:100%;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.gallery img:hover {
+    transform:scale(1.05);
+    box-shadow:0 0 20px #FF4D8D;
+}
+
+/* TESTIMONIAL */
+.testimonial {
+    background:#FFC0CB;
+    padding:20px;
+    border-radius:15px;
+    margin:10px;
+    animation:fadeUp 1s ease;
+}
+
+/* CONTACT */
+input, textarea {
+    width:80%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+/* CART */
+.cart {
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#FF4D8D;
+    color:white;
+    padding:15px;
+    border-radius:50%;
+    cursor:pointer;
+    animation:float 2s infinite;
+}
+
+/* SCROLL ANIMATION */
+.hidden {
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
+}
+
+.show {
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* FADE */
+@keyframes fadeUp {
+    from {opacity:0; transform:translateY(50px);}
+    to {opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+<div class="loader-text">PULSE&POUT 💋 Loading...</div>
+</div>
+
+<header>
+<div><b>PULSE&POUT 💋</b></div>
+<div>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#shop">Shop</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<h1 class="float">Gloss That Speaks Before You Do 💋</h1>
+<p>Shine. Hydrate. Slay.</p>
+<button onclick="scrollToSection('shop')">Shop Now</button>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="hidden">
+<h2>Our Story 💖</h2>
+<p>PULSE&POUT is for girls who love confidence, shine, and soft glam energy.</p>
+</section>
+
+<!-- SHOP -->
+<section id="shop" class="hidden">
+<h2>Shop Gloss 💄</h2>
+
+<div class="products">
+<div class="card">
+<img src="bubble gum shine.png" alt="Bubble Gum Shine">
+<h3>Bubble Gum Shine 🍬</h3>
+<p>₦3,000</p>
+<button onclick="addToCart('Bubble Gum Shine')">Add</button>
+</div>
+
+<div class="card">
+<img src="clear ice glass.png" alt="Clear Ice Glass">
+<h3>Clear Ice Glass ✨</h3>
+<p>₦3,000</p>
+<button onclick="addToCart('Clear Ice Glass')">Add</button>
+</div>
+
+<div class="card">
+<img src="nude addiction.png" alt="Nude Addiction">
+<h3>Nude Addiction 🤎</h3>
+<p>₦3,000</p>
+<button onclick="addToCart('Nude Addiction')">Add</button>
+</div>
+
+<div class="card">
+    <img src="Rose Glaze.png" alt="Rose Glaze">
+    <h3>Rose Glaze🌹</h3>
+    <p>#3,000</p>
+   <button onclick="addToCart('Rose Glaze')">Add</button 
+</div>
+
+<div class="card">
+    <img src="strawberry drip.png" alt="Strawberry Drip">
+    <h3>Strawberry Drip 🍓</h3>
+    <p>#3,000</p>
+    <button onclick="addToCart('Strawberry Drip')">Add</button
+</div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="hidden">
+<h2>Gallery ✨</h2>
+<div class="gallery">
+<img src="bubble gum shine.png" alt="Bubble Gum Shine">
+<img src="clear ice glass.png" alt="Clear Ice Glass">
+<img src="nude addiction.png" alt="Nude Addiction">
+<img src="Rose Glaze.png" alt="Rose Glaze">
+<img src="strawberry drip.png" alt="Strawberry Drip">
+</div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="hidden">
+<h2>What Girls Are Saying 💕</h2>
+<div class="testimonial">“This gloss is EVERYTHING 😍”</div>
+<div class="testimonial">“My lips stay shining all day 💋”</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="hidden">
+<h2>Contact Us 💌</h2>
+<input placeholder="Your Name">
+<input placeholder="Your Email">
+<textarea placeholder="Message"></textarea>
+<br>
+<button>Send Message</button>
+</section>
+
+<!-- CART -->
+<div class="cart" onclick="checkout()">💬</div>
+
+<script>
+let cart = [];
+
+/* LOADER */
+window.onload = function(){
+    setTimeout(()=>{
+        document.getElementById("loader").style.display="none";
+    },1500);
+};
+
+/* CART */
+function addToCart(item){
+    cart.push(item);
+    alert(item + " added 💋");
+}
+
+function checkout(){
+    let msg = "Hello PULSE&POUT 💋, I want to order:\n\n" + cart.join("/n") + "\n\nPlease share payment details.";
+    window.open("https://wa.me/2348109846911?text=" + encodeURIComponent(msg));
+}
+
+/* SCROLL */
+function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+/* SCROLL ANIMATION */
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+});
+
+document.querySelectorAll('.hidden').forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
